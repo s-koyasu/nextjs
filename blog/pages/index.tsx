@@ -14,7 +14,9 @@ type Props = {
   todos: any
 }
 
-export default function Index({ allPosts }: Props) {
+export default function Index({ 
+  allPosts
+ }: Props) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
 
@@ -73,7 +75,7 @@ export default function Index({ allPosts }: Props) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -84,6 +86,8 @@ export const getStaticProps = async () => {
   ])
 
   return {
-    props: { allPosts },
+    props: { 
+      allPosts 
+    },
   }
 }
